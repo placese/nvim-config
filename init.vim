@@ -11,11 +11,11 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set fileformat=unix
+set clipboard+=unnamed
 filetype indent on      " load filetype-specific indent files
 
 inoremap jk <esc>
 inoremap kj <esc>
-
 
 call plug#begin('~/.vim/plugged')
 
@@ -34,6 +34,11 @@ Plug 'morhetz/gruvbox'  " colorscheme gruvbox
 
 Plug 'preservim/nerdtree'
 
+nnoremap Y "+y
+vnoremap Y "+y
+nnoremap yY ^"+y$
+
+
 call plug#end()
 
 colorscheme space_vim_theme
@@ -46,9 +51,11 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " turn off search highlight
 nnoremap ,<space> :nohlsearch<CR>
 
-" create new tab
+" Tabs shorcuts
 nnoremap tn :tabnew .<CR>
 nnoremap tc :tabclose<CR>
+nnoremap tl :tabnext<CR>
+nnoremap th :tabprevious<CR>
 
 " open config nvim file in new tab
 nnoremap ti :tabnew ~/.config/nvim/init.vim<CR>
